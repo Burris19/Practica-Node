@@ -4,6 +4,7 @@
 
 var servidor = require('http');
 var url = require('url');
+var fs = require('fs'); //modulo interno faile system
 
 function iniciar(enrutar,manejador) {
     function arrancaServidor (requiere,respuesta) {
@@ -12,10 +13,16 @@ function iniciar(enrutar,manejador) {
 
         console.log("Alguien se ha conectado");
 
-        enrutar(manejador,ruta);
+		var contenido = enrutar(manejador,ruta);
+
+		//creamos un archivo de texto y lo abrimos para agregar archivos 
+		var registro = fs.createWriteStream('registro.txt',{'flags':'a'});
+		//ahora escribis en el archivo
+		registro.write(ruta + '\n');
+
 
         respuesta.writeHead(200,{"Content-Type":"text/html"});
-        respuesta.write("<h1>El servidor esta funcionando correctamente</h1>");
+        respuesta.write(contenido);
         respuesta.end;
     }
     servidor.createServer(arrancaServidor).listen(8080);

@@ -15,6 +15,11 @@ function pagina2(){
     return "Pagina 2";
 }
 
+function favicon(){
+	console.log("Se ha pedido el favicon");
+	return "";
+}
 exports.inicio = inicio;
 exports.pagina1 = pagina1;
 exports.pagina2 = pagina2;
+exports.favicon = favicon;
