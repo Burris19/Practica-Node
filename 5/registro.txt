@@ -42,3 +42,15 @@
 /pagina2
 /pagina1
 /pagina1
+/pagina1
+/pagina2
+/pagina1.html
+/inicio.html
+index.html
+/index.html
+index.html
+index.html
+/pagina1.html
+index.html
+/pagina2.html
+index.html

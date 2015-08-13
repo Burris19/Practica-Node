@@ -11,10 +11,15 @@ function iniciar(enrutar,manejador) {
 
         var ruta = url.parse(requiere.url).pathname;
 
+        if (ruta == '/') {
+            ruta = "index.html";
+        }
+
+
         console.log("Alguien se ha conectado");
 
 		//var contenido = enrutar(manejador,ruta,respuesta);
-        var index = fs.readFileSync("www/"+ ruta +".html");
+        var index = fs.readFileSync("www/"+ ruta );
 
 		//creamos un archivo de texto y lo abrimos para agregar archivos 
 		var registro = fs.createWriteStream('registro.txt',{'flags':'a'});
